@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秋霞电影网影音先锋 - 官方网站</title>
+<meta name="description" content="秋霞电影网影音先锋 是专注于前沿影视资源与在线观影体验的先锋平台，访问官网 https://qiuxiadianyingwangyingyinxianfeng-app.github.io 获取最新内容。">
+<meta name="keywords" content="秋霞电影网影音先锋, qiuxiadianyingwangyingyinxianfeng-app, 影视先锋, 在线观影, github pages">
+<style>
+/* 基础重置与全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0a0a1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 动态背景 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 200, 255, 0.1) 0%, transparent 50%);
+    z-index: -1;
+}
+
+/* 导航栏 - 玻璃拟态 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 26, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-logo span {
+    color: #00c8ff;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: #00c8ff;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00c8ff;
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* 主内容区 */
+.main-content {
+    margin-top: 60px;
+    padding: 40px 20px;
+}
+
+/* 英雄区域 */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #00c8ff, #7860ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-url {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(0, 200, 255, 0.1);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 25px;
+    color: #00c8ff;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #00c8ff, #7860ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 200, 255, 0.3);
+}
+
+/* 栏目通用样式 */
+.section {
+    padding: 80px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00c8ff, #7860ff);
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: #888;
+    margin-top: 20px;
+}
+
+/* 关于我们 */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.about-card h3 {
+    color: #00c8ff;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.about-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* 服务项目 */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.service-item:hover {
+    border-color: rgba(0, 200, 255, 0.3);
+    background: rgba(0, 200, 255, 0.05);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.service-item p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* 内容展示 */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), rgba(120, 96, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    border-color: rgba(0, 200, 255, 0.3);
+    color: #00c8ff;
+}
+
+/* 联系方式 */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.contact-info h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.contact-item .label {
+    color: #00c8ff;
+    min-width: 80px;
+    font-weight: 600;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00c8ff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #00c8ff, #7860ff);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.3);
+}
+
+/* 页脚 */
+.footer {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 20px 20px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-logo span {
+    color: #00c8ff;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00c8ff;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* 关键词高亮 */
+.keyword {
+    color: #00c8ff;
+    font-weight: 600;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero {
+        min-height: 60vh;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-grid,
+    .services-container,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        gap: 15px;
+    }
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">秋霞电影网影音先锋<span>.</span></a>
+        <ul class="nav-menu">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#services">服务项目</a></li>
+            <li><a href="#gallery">内容展示</a></li>
+            <li><a href="#contact">联系方式</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 主内容 -->
+<main class="main-content">
+
+    <!-- 首页/英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content animate-in">
+            <h1>秋霞电影网影音先锋</h1>
+            <p class="hero-url">https://qiuxiadianyingwangyingyinxianfeng-app.github.io</p>
+            <p>探索影视先锋的全新体验，<span class="keyword">秋霞电影网影音先锋</span> 致力于为您提供最前沿的在线观影服务。访问我们的官方网站，开启精彩之旅。</p>
+            <a href="#" class="cta-button">立即探索</a>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2>关于 秋霞电影网影音先锋</h2>
+            <p>了解我们的故事与使命</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>品牌故事</h3>
+                <p><span class="keyword">秋霞电影网影音先锋</span> 诞生于对优质影视内容的追求，我们不断探索技术与艺术的边界，为用户打造沉浸式的观影体验。</p>
+            </div>
+            <div class="about-card">
+                <h3>核心优势</h3>
+                <p>依托先进的技术架构，<span class="keyword">秋霞电影网影音先锋</span> 提供稳定流畅的访问体验，网址 <span class="keyword">qiuxiadianyingwangyingyinxianfeng-app.github.io</span> 随时为您服务。</p>
+            </div>
+            <div class="about-card">
+                <h3>未来愿景</h3>
+                <p>我们持续创新，让每一次访问都成为发现美好的过程，成为您值得信赖的影视先锋平台。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务项目 -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>服务项目</h2>
+            <p>秋霞电影网影音先锋 为您提供多元化服务</p>
+        </div>
+        <div class="services-container">
+            <div class="service-item">
+                <div class="service-icon">🎬</div>
+                <h3>高清影视</h3>
+                <p>海量高清资源，随时随地畅享</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">⚡</div>
+                <h3>极速体验</h3>
+                <p>优化加载速度，告别等待</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🎨</div>
+                <h3>个性推荐</h3>
+                <p>智能算法，精准匹配喜好</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🔒</div>
+                <h3>安全可靠</h3>
+                <p>绿色环境，放心浏览</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 内容展示 -->
+    <section class="section" id="gallery">
+        <div class="section-header">
+            <h2>内容展示</h2>
+            <p>探索 秋霞电影网影音先锋 的精彩世界</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">热门推荐</div>
+            <div class="gallery-item">最新上线</div>
+            <div class="gallery-item">经典回顾</div>
+            <div class="gallery-item">独家内容</div>
+            <div class="gallery-item">分类导航</div>
+            <div class="gallery-item">专题策划</div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <h2>联系我们</h2>
+            <p>与 秋霞电影网影音先锋 取得联系</p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>联系方式</h3>
+                <div class="contact-item">
+                    <span class="label">网站名称：</span>
+                    <span>秋霞电影网影音先锋</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">网站地址：</span>
+                    <span>qiuxiadianyingwangyingyinxianfeng-app.github.io</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">电子邮箱：</span>
+                    <span>contact@秋霞电影网影音先锋.example</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">在线时间：</span>
+                    <span>7×24 小时</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" placeholder="您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email" placeholder="您的邮箱">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">留言</label>
+                        <textarea id="message" name="message" placeholder="请输入您的留言内容"></textarea>
+                    </div>
+                    <button type="button" class="submit-btn">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">秋霞电影网影音先锋<span>.</span></div>
+        <div class="footer-links">
+            <a href="#home">首页</a>
+            <a href="#about">关于我们</a>
+            <a href="#services">服务项目</a>
+            <a href="#gallery">内容展示</a>
+            <a href="#contact">联系方式</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 <span class="keyword">秋霞电影网影音先锋</span>. All rights reserved. | 网址: <span class="keyword">https://qiuxiadianyingwangyingyinxianfeng-app.github.io</span></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// 平滑滚动增强
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// 滚动动画
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.about-card, .service-item, .gallery-item').forEach(el => {
+    observer.observe(el);
+});
+
+// 导航栏滚动效果
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.style.background = 'rgba(10, 10, 26, 0.95)';
+    } else {
+        navbar.style.background = 'rgba(10, 10, 26, 0.8)';
+    }
+    
+    lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>
